@@ -1,1 +1,120 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+= git-secure
+:toc: preamble
+:toclevels: 2
+:icons: font
 
+RSR-compliant repository template with security and standards enforcement.
+
+== Status
+
+[IMPORTANT]
+====
+*Project specification will be uploaded shortly.*
+
+This repository currently contains infrastructure scaffolding only.
+====
+
+== Overview
+
+`git-secure` is a template repository implementing the *Rhodium Standard Repository (RSR)* specification. It provides:
+
+* CI/CD workflows for policy enforcement
+* Multi-forge synchronisation
+* Security best practices
+* Reproducible build infrastructure
+
+== Infrastructure Provided
+
+=== Technology Policy Enforcement
+
+[cols="1,2"]
+|===
+|Workflow |Purpose
+
+|`rsr-antipattern.yml`
+|Blocks TypeScript, Go, npm — enforces ReScript, Deno, Rust
+
+|`guix-nix-policy.yml`
+|Enforces Guix (primary) / Nix (fallback) package management
+
+|`wellknown-enforcement.yml`
+|Validates RFC 9116 security.txt and RSR well-known standards
+
+|`security-policy.yml`
+|Security scanning and policy compliance
+|===
+
+=== Allowed Technologies
+
+[cols="1,2,1"]
+|===
+|Technology |Use Case |Notes
+
+|ReScript |Primary application code |Compiles to JS, type-safe
+|Deno |Runtime & package management |Replaces Node/npm
+|Rust |Performance-critical, systems, WASM |CLI tools, native code
+|Gleam |Backend services |BEAM or JS target
+|Guile Scheme |Configuration, state files |STATE.scm, META.scm
+|Bash/POSIX |Scripts, automation |Keep minimal
+|===
+
+=== Blocked Technologies
+
+[cols="1,1"]
+|===
+|Blocked |Replacement
+
+|TypeScript |ReScript
+|Node.js/npm |Deno
+|Go |Rust
+|Python (general) |ReScript/Rust
+|===
+
+== Multi-Forge Sync
+
+This repository automatically propagates to multiple forges on push/release via `instant-sync.yml`.
+
+== Quick Start
+
+[source,bash]
+----
+# Clone
+git clone https://github.com/hyperpolymath/git-secure.git
+cd git-secure
+
+# View available tasks
+just
+
+# Run validation
+just validate-rsr
+----
+
+== Project Structure
+
+----
+git-secure/
+├── .github/
+│   ├── workflows/        # CI/CD enforcement
+│   └── ISSUE_TEMPLATE/   # Issue templates
+├── .claude/              # AI assistant configuration
+├── docs/                 # Documentation
+├── justfile              # Task runner
+├── SECURITY.md           # Security policy
+├── CONTRIBUTING.md       # Contribution guide
+└── README.adoc           # This file
+----
+
+== Roadmap
+
+See link:ROADMAP.adoc[ROADMAP.adoc] for development plans.
+
+== License
+
+AGPL-3.0-or-later
+
+== Links
+
+* link:SECURITY.md[Security Policy]
+* link:CONTRIBUTING.md[Contributing Guide]
+* link:docs/CITATIONS.adoc[How to Cite]

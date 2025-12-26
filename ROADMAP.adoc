@@ -1,0 +1,101 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+= git-secure Roadmap
+:toc:
+:toclevels: 2
+:icons: font
+
+Development roadmap for the git-secure project.
+
+== Current Status
+
+[NOTE]
+====
+*Project specification will be uploaded shortly.*
+
+The repository currently contains RSR-compliant infrastructure scaffolding.
+No application code has been developed yet.
+====
+
+== What Exists
+
+=== Infrastructure (Complete)
+
+* [x] RSR anti-pattern enforcement workflow
+* [x] Guix/Nix package policy workflow
+* [x] Well-known standards enforcement (RFC 9116)
+* [x] Multi-forge instant sync
+* [x] Security policy template
+* [x] Contributing guidelines
+* [x] Justfile task runner template
+* [x] GitHub issue templates
+* [x] GitLab CI configuration
+* [x] CodeQL security scanning
+* [x] OSSF Scorecard integration
+
+=== Documentation (Partial)
+
+* [x] SECURITY.md (template)
+* [x] CONTRIBUTING.md (template)
+* [x] CODE_OF_CONDUCT.md
+* [x] Citation formats (docs/CITATIONS.adoc)
+* [x] README.adoc
+* [x] ROADMAP.adoc (this file)
+
+== Planned Development
+
+=== Phase 1: Specification
+
+* [ ] Upload project specification
+* [ ] Define core functionality
+* [ ] Architecture decision records (ADRs)
+* [ ] API design documents
+
+=== Phase 2: Core Implementation
+
+* [ ] Primary codebase (language TBD per RSR policy)
+* [ ] Unit test suite
+* [ ] Integration tests
+* [ ] CI/CD pipeline customisation
+
+=== Phase 3: Documentation & Release
+
+* [ ] User documentation
+* [ ] API reference
+* [ ] Example usage
+* [ ] Initial release
+
+== Technology Constraints
+
+Per RSR policy, implementation will use:
+
+[cols="1,2"]
+|===
+|Category |Allowed Technologies
+
+|Application Code |ReScript, Rust, Gleam
+|Runtime |Deno
+|Package Management |Guix (primary), Nix (fallback)
+|Configuration |Nickel, Guile Scheme
+|Scripting |Bash/POSIX (minimal)
+|===
+
+== Contributing
+
+See link:CONTRIBUTING.md[CONTRIBUTING.md] for how to participate.
+
+Priority areas:
+
+1. Specification review (once uploaded)
+2. Infrastructure improvements
+3. Documentation enhancements
+
+== Version History
+
+[cols="1,1,2"]
+|===
+|Version |Date |Notes
+
+|0.0.1
+|2025
+|Initial infrastructure scaffolding
+|===
